@@ -82,7 +82,7 @@ body {
 /* boton modo oscuro */
 
 body.dark-mode {
-    background: #222;
+    background: linear-gradient(to right, #1b3746, #1b4b2f);
     color: #fff;
   }
 
@@ -108,7 +108,7 @@ body.dark-mode {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #83e05e;
     transition: .4s;
     border-radius: 34px;
   }
@@ -120,13 +120,13 @@ body.dark-mode {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     transition: .4s;
     border-radius: 50%;
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #3f77af;
   }
   
   input:checked + .slider:before {
@@ -139,4 +139,164 @@ body.dark-mode {
   
   .slider.round:before {
     border-radius: 50%;
+  }
+
+  @media screen and (max-width: 323px) {
+    /* Estilos específicos para pantallas muy pequeñas */
+    .calculator-grid {
+        min-height: 50vh;
+        grid-template-columns: repeat(4, 75px);
+        grid-template-rows: minmax(1px, auto) repeat(5, 120px);
+    }
+
+    .output {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        padding: 50px;
+    }
+
+    .output .previous-operand {
+        font-size: 15px;
+    }
+
+    .output .current-operand {
+        font-size: 25px;
+    }
+
+    .calculator-grid > button {
+        font-size: 20px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        
+      }
+      
+      .calculator-grid > button:hover {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      }
+
+      /*slider*/
+
+  .switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background-color: #83e05e;
+    transition: .4s;
+    border-radius: 10px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2.5px;
+    background-color: rgb(255, 255, 255);
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+  
+ 
+  }
+
+  @media screen and (max-width: 767px) {
+    /* Estilos específicos para pantallas pequeñas */
+
+    .calculator-grid {
+        min-height: 0vh;
+        grid-template-columns: repeat(4, 100px);
+        grid-template-rows: minmax(10px, auto) repeat(5, 50px);
+    }
+
+    .output {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        padding: 50px;
+    }
+
+    .output .previous-operand {
+        font-size: 15px;
+    }
+
+    .output .current-operand {
+        font-size: 25px;
+    }
+
+    .calculator-grid > button {
+        font-size: 20px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        
+      }
+      
+      .calculator-grid > button:hover {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      }
+
+      /*slider*/
+
+  .switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background-color: #83e05e;
+    transition: .4s;
+    border-radius: 10px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2.5px;
+    background-color: rgb(255, 255, 255);
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+ 
+  }
+
+
+
   }
