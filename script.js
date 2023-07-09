@@ -124,3 +124,11 @@ deleteButton.addEventListener('click', button => {
   calculator.delete()
   calculator.updateDisplay()
 })
+
+// boton modo oscuro 
+const toggleButton = document.getElementById('toggleButton');
+const body = document.body;
+
+toggleButton.addEventListener('change', function() {
+  body.classList.toggle('dark-mode');
+});

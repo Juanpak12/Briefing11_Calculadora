@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotham+Rounded:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
-  font-family: Gotham Rounded, sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-weight: normal;
 }
 
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Roboto Mono', monospace;
   background: linear-gradient(to right, #00AAFF, #00FF6C);
 }
 
@@ -15,20 +20,31 @@ body {
   justify-content: center;
   align-content: center;
   min-height: 100vh;
-  grid-template-columns: repeat(4, 100px);
-  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+
+  grid-template-columns: repeat(4, 450px);
+  grid-template-rows: minmax(350px, auto) repeat(5, 100px);
 }
 
 .calculator-grid > button {
   cursor: pointer;
   font-size: 2rem;
-  border: 1px solid white;
+  border: 1px solid black;
   outline: none;
-  background-color: rgba(255, 255, 255, .75);
+  font-weight: lighter;
+  background-color: rgba(255, 255, 255, .2);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  
+  transform: perspective(500px) translateZ(0);
+  transition: transform 0.5s ease;
 }
 
 .calculator-grid > button:hover {
   background-color: rgba(255, 255, 255, .9);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+  transform: perspective(500px) translateZ(10px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 }
 
 .span-two {
@@ -37,22 +53,90 @@ body {
 
 .output {
   grid-column: 1 / -1;
-  background-color: rgba(0, 0, 0, .75);
+  background-color: rgba(11, 59, 30, 0.9);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
   flex-direction: column;
-  padding: 10px;
+  padding: 50px;
   word-wrap: break-word;
   word-break: break-all;
 }
 
+.output:hover {
+    background-color: rgba(11, 59, 30, 1);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+  }
+
 .output .previous-operand {
   color: rgba(255, 255, 255, .75);
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .output .current-operand {
   color: white;
-  font-size: 2.5rem;
+  font-size: 4.5rem;
 }
+
+/* boton modo oscuro */
+
+body.dark-mode {
+    background: #222;
+    color: #fff;
+  }
+
+  /*slider*/
+
+  .switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
