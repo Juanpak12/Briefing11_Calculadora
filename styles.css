@@ -294,9 +294,4 @@ body.dark-mode {
   input:checked + .slider:before {
     transform: translateX(24px);
   }
- 
-  }
-
-
-
-  }
+}
